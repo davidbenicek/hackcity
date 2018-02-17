@@ -1,11 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const request = require('request');
 
-const app = express();
 
 const config = require('./config.js');
 
 const starling = require('./services/starling.js');
+const util = require('./services/util.js');
+const app = express();
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
 
 const server = app.listen(1200, function () {
   var host = server.address().address
@@ -20,16 +27,63 @@ app.get('/', function (req, res) {
 })
 
 app.get('/balance', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
   try {
-    const balance = await starling.balance(config.starling_token);
+    const balance = await starling.balance(token);
     res.send(balance);
   }catch (err){
     console.log(err);
     res.send(500,err);
   }
-
 })
 
+app.get('/contacts', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
+  try {
+    const contacts = await starling.contacts(token);
+    res.send(contacts["_embedded"].contacts);
+  }catch (err){
+    console.log(err);
+    res.send(500,err);
+  }
+})
 
+//Adds contact to 
+app.post('/contacts', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
+  
+  const contact = req.body;
+
+  try {
+    const contact = await starling.addContact(contact,token);
+    res.send(contact);
+  }catch (err){
+    console.log(err);
+    res.send(500,err);
+  }
+})
+
+app.get('/transactions', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
+  try {
+    const transactions = await starling.transactions(token);
+    res.send(transactions["_embedded"].transactions);
+  }catch (err){
+    console.log(err);
+    res.send(500,err);
+  }
+})
+
+app.post('/pay', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
+  const transaction = req.body;
+  try {
+    const history = await starling.pay(transaction,token);
+    // res.send(history);
+  }catch (err){
+    console.log(err);
+    res.send(500,err);
+  }
+})
 
 
