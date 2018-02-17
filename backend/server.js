@@ -26,6 +26,17 @@ app.get('/', function (req, res) {
    res.send('Hello World');
 })
 
+app.get('/accounts', async function (req, res) {
+  const token = util.getUserToken(req.query.user);
+  try {
+    const accounts = await starling.accounts(token);
+    res.send(accounts);
+  }catch (err){
+    console.log(err);
+    res.send(500,err);
+  }
+})
+
 app.get('/balance', async function (req, res) {
   const token = util.getUserToken(req.query.user);
   try {
