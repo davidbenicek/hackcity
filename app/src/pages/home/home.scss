@@ -1,3 +1,10 @@
+/** Regular */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+
 page-home {
 
 
@@ -13,7 +20,11 @@ ion-title {
     text-align: center;
   }
 
-#balance_content {
+#button_content {
+    display: grid;
+}
+
+#balance {
     margin-left: auto;
     width: 50vw;
     margin-right: auto;
@@ -21,7 +32,24 @@ ion-title {
     height: 50vw;
 }
 
+#balance_overview {
+    font-size: 8vw;
+    color: #A0C13E;
+    //margin-right: 10px;
+    font-family: "San Francisco";
+}
 
+#balance_overview #small_top {
+    font-size: 4.5vw;
+    margin-right: 1vw;
+    color: #DCE2AA;
+    vertical-align: 2.0vw;
+}
 
+#small {
+    margin-top: -5vw;
+    font-size: 3.0vw;
+    color: #DCE2AA;
+}
 
 
