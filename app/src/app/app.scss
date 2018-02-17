@@ -14,3 +14,32 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+#balance_button {
+    width: 50vw;
+    height: 50vw;
+}
+
+.brown_round_button {
+    border-style: solid;
+    border-color: #B57F50;
+    border-width: 2pt;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.brown_round_button:active {
+    border-style: solid;
+    border-color: #B57F50;
+    border-width: 2pt;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
+
+.brown_round_button:hover {
+    border-style: solid;
+    border-color: #B57F50;
+    border-width: 2pt;
+    border-radius: 50%;
+    background-color: #ffffff;
+}
