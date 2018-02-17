@@ -122,7 +122,8 @@ module.exports = {
     transactions,
     contacts,
     addContact,
-    pay
+    pay,
+    accounts
 }
 
 
