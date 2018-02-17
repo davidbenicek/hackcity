@@ -7,9 +7,12 @@
 </ion-header>
 
 <ion-content padding>
-  <div id="balance_content">
+  <div id="balance">
       <button id="balance_button" class="brown_round_button" ion-button round>
-        <a></a>
+        <div id="button_content">
+          <a id="small">Your Balance</a>
+          <a id="balance_overview"><a id="small_top">$</a>{{euros}}<a id="small_top">.{{cents}}</a></a>
+        </div>      
       </button>
   </div>
     
