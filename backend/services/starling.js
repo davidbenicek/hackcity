@@ -46,6 +46,15 @@ async function postApi(url, payload, token){
     })
 }
 
+async function accounts(token){
+    try {
+        return await api("/accounts/",token);
+    } catch (err){
+        console.log(err);
+        return "Failed to get accounts from Straling API"
+    }
+}
+
 async function balance(token){
     try {
         return await api("/accounts/balance/",token);
