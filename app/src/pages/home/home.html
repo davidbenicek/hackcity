@@ -10,7 +10,7 @@
   
   <div id="menu_wrapper">
       <div id="top_menu_buttons">
-              <button id="menu_receive_money" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+              <button id="menu_receive_money" (click) = "push()" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
                   
               </button>
               <button id="menu_send_money" (click) = "loadDecision()" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>

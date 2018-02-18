@@ -10,12 +10,14 @@ import { Transactions } from '../pages/transactions/transactions';
 import { Decision } from '../pages/decision/decision';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { QRCode } from '../pages/QRCode/qr';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     Transactions,
+    QRCode,
     Decision
   ],
   imports: [
@@ -29,6 +31,7 @@ import { CommonModule } from '@angular/common';
     MyApp,
     HomePage,
     Transactions,
+    QRCode,
     Decision
   ],
   providers: [
