@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { QRCode } from '../QRCode/qr';
+
 
 @Component({
   selector: 'page-home',
@@ -21,10 +23,10 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http:HttpClient) {
     var json = this.getBalance()
     json.then( x => {
-      //console.log(x.amount);
-      //var amount = (x.amount).toString();
-      //this.euros = amount.split('.')[0]
-      //this.cents = amount.split('.')[1]
+      console.log(x.amount);
+      var amount = (x.amount).toString();
+      this.euros = amount.split('.')[0]
+      this.cents = amount.split('.')[1]
     } ) 
   }
 
@@ -44,6 +46,8 @@ export class HomePage {
     });
   }
 
-
-
+  push() {
+    //pageNum++;
+    this.navCtrl.push(QRCode);
+  }
 }
