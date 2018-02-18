@@ -2,7 +2,7 @@
 @font-face {
     font-family: "San Francisco";
     font-weight: 400;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+    src: url("/assets/fonts/SFProText-Regular.ttf");
   }
 
 page-home {
@@ -32,14 +32,13 @@ ion-title {
 }
 
 #balance_overview {
-    font-size: 8vw;
+    font-size: 10vw;
     color: #A0C13E;
-    //margin-right: 10px;
     font-family: "San Francisco";
 }
 
 #balance_overview #small_top {
-    font-size: 4.5vw;
+    font-size: 6.5vw;
     margin-right: 1vw;
     color: #DCE2AA;
     vertical-align: 2.0vw;
@@ -47,7 +46,7 @@ ion-title {
 
 #small {
     margin-top: -5vw;
-    font-size: 3.0vw;
+    font-size: 4.0vw;
     color: #DCE2AA;
 }
 
@@ -59,6 +58,11 @@ ion-title {
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
+    border-style: solid;
+    border-color: #B57F50;
+    border-width: 2pt;
+    border-radius: 50%;
+    background-color: #ffffff;
 }
 
 #top_menu_buttons {
@@ -66,22 +70,37 @@ ion-title {
 }
 
 #menu_wrapper {
-    margin-top: 20%;    
+    margin-top: 10%;    
 }
 
 #menu_receive_money {
     float:left;
     background-image: url("../assets/imgs/dollar.svg");
+    -webkit-tap-highlight-color: #dadada34;    
+}
+
+#menu_receive_money:hover {
+    background-color: #ffffff;
 }
 
 #menu_send_money {
     float:right;
     background-image: url("../assets/imgs/transfer-money.svg");
+    -webkit-tap-highlight-color: #dadada34;   
+}
+
+#menu_send_money:hover {
+    background-color: #ffffff;
 }
 
 #menu_history {
     float: center;
     background-image: url("../assets/imgs/history.svg");
+    -webkit-tap-highlight-color: #dadada34;
+}
+
+#menu_history:hover {
+    background-color: #ffffff;
 }
 
 #bottom_menu_buttos {
@@ -97,6 +116,6 @@ ion-title {
   }
   
   .fade {
-    transition: all linear 0.3s;
+    transition: opacity linear 0.3s;
   }
   

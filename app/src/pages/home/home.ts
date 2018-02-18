@@ -12,8 +12,8 @@ export class HomePage {
 
   hideMenu = true;
 
-  euros = 0;
-  cents = 0;
+  euros = 1234;
+  cents = 45;
 
   user = 'malcolm';
   apiUrl = 'http://localhost:1200';
