@@ -85,7 +85,72 @@ async function balance(token){
 
 async function transactions(token){
     try {
-        return await api("/transactions/",token);
+        let transactions =  await api("/transactions/",token);
+        transactions = transactions["_embedded"].transactions;
+        console.log("yooo",transactions[0]);
+        let formatedTransactions = {
+            today : [],
+            yesterday : [],
+            before : []
+        };
+        // var date = Date.now();
+        let date = new Date();
+        let string_date = date.toISOString();
+        string_date = string_date.split("T")[0];
+        const today = string_date
+        let i = 0;
+        while(!transactions[i].created.indexOf(today) && i < transactions.length -1){
+            console.log("YP",transactions[i].created, today);
+            delete transactions[i]["_links"];
+            transactions[i].positive = (transactions[i].amount > 0);
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
+            formatedTransactions.today.push(transactions[i]);
+            i++;
+        }
+        date.setDate(date.getDate()-1);
+        string_date = date.toISOString();
+        const yesterday  = string_date.split("T")[0];
+        while(!transactions[i].created.indexOf(yesterday) && i < transactions.length -1 ){
+            console.log("YP",transactions[i].created, yesterday);
+            transactions[i].positive = (transactions[i].amount > 0);
+            delete transactions[i]["_links"];
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
+            formatedTransactions.yesterday.push(transactions[i]);
+            i++;
+        }
+        while(i < transactions.length -1 ){
+            transactions[i].positive = (transactions[i].amount > 0);
+            delete transactions[i]["_links"];
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
+            formatedTransactions.before.push(transactions[i]);
+            i++;
+        }
+        const fake = [{
+            "id": "6f03a23a-bbfc-4479-8d4d-abb6a9119d27",
+            "currency": "GBP",
+            "amount": -23.45,
+            "direction": "OUTBOUND",
+            "created": "18:27",
+            "narrative": "Borough Barista",
+            "source": "MASTER_CARD",
+            "balance": 254.12
+          },{
+            "id": "6f03a23a-bbfc-4479-8d4d-abb6a9119d27",
+            "currency": "GBP",
+            "amount": +3.45,
+            "direction": "OUTBOUND",
+            "created": "14:27",
+            "narrative": "Borough Barista",
+            "source": "MASTER_CARD",
+            "balance": 4.12
+          }]
+        formatedTransactions.before = fake;
+        console.log("Formated",formatedTransactions);
+        console.log(formatedTransactions.today.length,",",formatedTransactions.yesterday.length,",",formatedTransactions.before.length)
+        return formatedTransactions;
     } catch (err){
         console.log(err);
         throw "Failed to get historic transactions from Straling API"

@@ -21,6 +21,7 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "guid": "0.0.12",
+    "isodate": "^0.1.4",
     "request": "^2.83.0"
   },
   "devDependencies": {

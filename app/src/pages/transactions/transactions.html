@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Smooth
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <div id="menu_wrapper">
+    <div class="remaining">
+      <p class="remaining_text">Current balance:</p>
+      <h1 class="remaining_amount">£{{remaining_amount}}</h1>
+    </div>
+    <ion-list class="transactions_list">
+
+      <ion-list-header>Today</ion-list-header>
+  
+      <ion-item *ngFor="let item of transactions.today">
+        <h2 item-start class="transaction_amount {{item.positive ? 'positive_amount' : 'negative_amount' }}">
+          £{{item.amount}}
+        </h2>
+        <h2>{{item.narrative}}</h2>
+        <p>New balance £{{item.balance}}</p>
+        <ion-note item-end>{{item.created}}</ion-note>
+      </ion-item>
+
+  
+    </ion-list>
+  
+    <ion-list>
+  
+      <ion-list-header>Yesterday</ion-list-header>
+  
+      <ion-item *ngFor="let item of transactions.yesterday">
+          <h2 item-start class="transaction_amount {{item.positive ? 'positive_amount' : 'negative_amount' }}">
+            £{{item.amount}}
+          </h2>
+          <h2>{{item.narrative}}</h2>
+          <p>New balance £{{item.balance}}</p>
+          <ion-note item-end>{{item.created}}</ion-note>
+        </ion-item>
+  
+  
+    </ion-list>
+  
+    <ion-list *ngIf="show_before" >
+  
+      <ion-list-header>Older Transactions</ion-list-header>
+  
+      <ion-item *ngFor="let item of transactions.before">
+          <h2 item-start class="transaction_amount {{item.positive ? 'positive_amount' : 'negative_amount' }}">
+            £{{item.amount}}
+          </h2>
+          <h2>{{item.narrative}}</h2>
+          <p>New balance £{{item.balance}}</p>
+          <ion-note item-end>{{item.created}}</ion-note>
+        </ion-item>
+  
+
+  
+    </ion-list>
+  </div>
+    
+
+</ion-content>

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { Transactions } from '../transactions/transactions';
+import { Photo } from '../photo/photo';
+import { QRScan } from '../qrscan/qrscan';
 
 @Component({
   selector: 'page-home',
@@ -37,7 +40,7 @@ export class HomePage {
     } ) 
   }
 
-  toogleMenu() {
+  toggleMenu() {
     this.hideMenu = !this.hideMenu;
   }
 
@@ -51,6 +54,16 @@ export class HomePage {
     });
   }
 
+  loadTransaction() {
+    this.navCtrl.push(Transactions);
+  }
 
+  loadPhotoUpload() {
+    this.navCtrl.push(Photo);
+  }
+
+  loadQRScanner() {
+    this.navCtrl.push(QRScan);
+  }
 
 }
