@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Transactions } from '../pages/transactions/transactions';
+import { Photo } from '../pages/photo/photo';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +19,8 @@ import { Camera } from '@ionic-native/camera';
   declarations: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    Photo
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { Camera } from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    Photo
   ],
   providers: [
     StatusBar,
