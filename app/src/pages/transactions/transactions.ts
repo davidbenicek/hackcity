@@ -61,7 +61,7 @@ export class Transactions {
 
   getTransactions() {
     return new Promise(resolve => {
-      this.http.get('http://localhost:1200/transactions?user='+this.user).subscribe(data => {
+      this.http.get('http://10.209.38.84:1200/transactions?user='+this.user).subscribe(data => {
         console.log(data);
         resolve(data);
       }, err => {

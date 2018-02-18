@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { Headers, RequestOptions } from '@angular/http';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { Finish } from '../finish/finish';
 
 @Component({
   selector: 'page-home',
@@ -9,6 +11,10 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 })
 
 export class QRScan {
+
+  user = 'malcolm';
+  apiUrl = 'http://10.209.38.84:1200';
+  payUrl = this.apiUrl + '/pay?user=';
 
   constructor(public navCtrl: NavController, public http:HttpClient, public qrScanner: QRScanner) {
 
@@ -23,17 +29,16 @@ export class QRScan {
       .then((status: QRScannerStatus) => {
         if (status.authorized) {
           // camera permission was granted
-          alert('authorized');
 
           this.qrScanner.useCamera(0);
 
           // start scanning
           let scanSub = this.qrScanner.scan().subscribe((text: string) => {
             console.log('Scanned something', text);
-            alert(text);
+            this.sendTransaction(text);
             this.qrScanner.hide(); // hide camera preview
             scanSub.unsubscribe(); // stop scanning
-            this.navCtrl.pop();
+            window.document.querySelector('ion-app').classList.remove('transparent-body');
           });
 
           this.qrScanner.resumePreview();
@@ -41,10 +46,7 @@ export class QRScan {
           // show camera preview
           this.qrScanner.show()
           .then((data : QRScannerStatus)=> { 
-            alert(data.showing);
           },err => {
-            alert(err);
-
           });
 
           window.document.querySelector('ion-app').classList.add('transparent-body');
@@ -66,6 +68,30 @@ export class QRScan {
       });
 
   }
+
+
+  sendTransaction(data) {
+
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    var header = { "headers": {"Content-Type": "application/json"} };
+
+    return new Promise((resolve, reject) => {
+      this.http.post(this.payUrl + this.user, data)
+      .toPromise()
+      .then((response) =>
+      {
+
+      })
+      .catch((error) =>
+      {
+        console.error('API Error : ', error.status);
+        console.error('API Error : ', JSON.stringify(error));
+        reject(error.json());
+      });
+  }); 
+}
 
 
 }

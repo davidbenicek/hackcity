@@ -18,7 +18,7 @@ export class HomePage {
   cents = "45";
 
   user = 'malcolm';
-  apiUrl = 'http://localhost:1200';
+  apiUrl = 'http://10.209.38.84:1200';
   balanceUrl = this.apiUrl + '/balance?user=';
 
   constructor(public navCtrl: NavController, public http:HttpClient) {
@@ -46,7 +46,7 @@ export class HomePage {
 
   getBalance() {
     return new Promise(resolve => {
-      this.http.get('http://localhost:1200/balance').subscribe(data => {
+      this.http.get(this.balanceUrl + this.user).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

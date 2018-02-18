@@ -16,6 +16,7 @@ import { Camera } from '@ionic-native/camera';
 import { Photo } from '../pages/photo/photo';
 import { QRScan } from '../pages/qrscan/qrscan';
 import { QRScanner } from '@ionic-native/qr-scanner';
+import { Finish } from '../pages/finish/finish';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { QRScanner } from '@ionic-native/qr-scanner';
     HomePage,
     Transactions,
     Photo,
-    QRScan
+    QRScan,
+    Finish
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { QRScanner } from '@ionic-native/qr-scanner';
     HomePage,
     Transactions,
     Photo,
-    QRScan
+    QRScan,
+    Finish
   ],
   providers: [
     StatusBar,
