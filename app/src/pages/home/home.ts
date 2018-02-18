@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Transactions } from '../transactions/transactions';
 import { QRCode } from '../QRCode/qr';
 import { Decision } from '../decision/decision';
+import { QRTransition } from '../QRtransition/transition';
 
 @Component({
   selector: 'page-home',
@@ -22,9 +23,8 @@ export class HomePage {
   balanceUrl = this.apiUrl + '/balance?user=';
 
   constructor(public navCtrl: NavController, public http:HttpClient) {
-    var json = this.getBalance()
+    var json = this.getBalance();
     json.then( x => {
-      console.log(x.amount);
       var amount = (x.amount).toString();
       this.euros = amount.split('.')[0]
       this.cents = amount.split('.')[1]
@@ -51,11 +51,11 @@ export class HomePage {
     this.navCtrl.push(Transactions);
   }
 
-  push() {
-    this.navCtrl.push(QRCode);
-  }
-
   loadDecision() {
     this.navCtrl.push(Decision);
+  }
+
+  loadBalance() {
+    this.navCtrl.push(QRTransition);
   }
 }

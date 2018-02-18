@@ -1,0 +1,17 @@
+
+<div id = "alignCenter">
+<ion-list>
+        
+    <ion-item>
+        <ion-label fixed class='fixedLabel'>Enter $ </ion-label>
+        <ion-input type="text" id="balance_overview" value={{amt}} [(ngModel)]="money"></ion-input>
+    </ion-item>
+        
+        
+</ion-list>
+</div>
+
+<div id="bottom_menu_buttons">
+        <button id="menu_receive_money" (click) = "push()" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+        </button>
+<div>

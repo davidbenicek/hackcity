@@ -11,6 +11,7 @@ import { Decision } from '../pages/decision/decision';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { QRCode } from '../pages/QRCode/qr';
+import { QRTransition } from '../pages/QRtransition/transition';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QRCode } from '../pages/QRCode/qr';
     HomePage,
     Transactions,
     QRCode,
-    Decision
+    Decision,
+    QRTransition
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { QRCode } from '../pages/QRCode/qr';
     HomePage,
     Transactions,
     QRCode,
-    Decision
+    Decision,
+    QRTransition
   ],
   providers: [
     StatusBar,
