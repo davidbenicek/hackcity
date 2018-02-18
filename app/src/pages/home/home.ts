@@ -5,6 +5,8 @@ import { Transactions } from '../transactions/transactions';
 import { QRCode } from '../QRCode/qr';
 import { Decision } from '../decision/decision';
 import { QRTransition } from '../QRtransition/transition';
+import { Photo } from '../photo/photo';
+import { QRScan } from '../qrscan/qrscan';
 
 @Component({
   selector: 'page-home',
@@ -15,31 +17,39 @@ export class HomePage {
 
   hideMenu = true;
 
-  euros = 1234;
-  cents = 45;
+  euros = "1234";
+  cents = "45";
 
   user = 'malcolm';
-  apiUrl = 'http://localhost:1200';
+  apiUrl = 'http://10.209.38.84:1200';
   balanceUrl = this.apiUrl + '/balance?user=';
 
   constructor(public navCtrl: NavController, public http:HttpClient) {
-    var json = this.getBalance();
+    interface Balance {
+      amount:    string;
+      effectiveBalance:     string;
+      availableToSpend: string;
+      pendingTransactions:    string;
+      clearedBalance:     string;
+      currency: string;
+    }
+    
+    var json = this.getBalance()
     json.then( x => {
-      var amount = (x.amount).toString();
+      let balance: Balance = <Balance>x;
+      var amount = (balance.amount).toString();
       this.euros = amount.split('.')[0]
       this.cents = amount.split('.')[1]
     } ) 
   }
 
-  toogleMenu() {
-    console.log("Toggle " + this.hideMenu);
+  toggleMenu() {
     this.hideMenu = !this.hideMenu;
   }
 
   getBalance() {
     return new Promise(resolve => {
-      this.http.get('http://localhost:1200/balance').subscribe(data => {
-        //console.log(data);
+      this.http.get(this.balanceUrl + this.user).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -52,8 +62,9 @@ export class HomePage {
   }
 
   loadDecision() {
-    this.navCtrl.push(Decision);
-  }
+    this.navCtrl.push(Decision);}
+
+  
 
   loadBalance() {
     this.navCtrl.push(QRTransition);
