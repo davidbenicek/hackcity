@@ -14,3 +14,34 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+
+#balance_button, #balance_button:hover, #balance_button:active {
+    width: 50vw;
+    height: 50vw;
+    border-style: solid;
+    border-color: #B57F50;
+    border-width: 2pt;
+    border-radius: 50%;
+    background-color: #ffffff;
+    -webkit-tap-highlight-color: #dadada34;
+}
+
+#balance_button:hover {
+    background-color: #ffffff;
+}
+
+ion-navbar.toolbar {
+    min-height: 15vw;
+    //margin-top: 15px;
+}
+
+.no-scroll .scroll-content{
+    overflow: hidden;
+  }
+
+  .toolbar-background {
+    //background-color: #ffffff;
+    border-style: none;
+}
