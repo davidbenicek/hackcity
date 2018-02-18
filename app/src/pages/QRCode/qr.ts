@@ -26,7 +26,7 @@ export class QRCode {
 
   getAccount() {
     return new Promise(resolve => {
-        this.http.get(this.accountUrl).subscribe(data => {
+        this.http.get(this.accountUrl+"?user=rincewind").subscribe(data => {
           resolve(data);
         }, err => {
           console.log(err);

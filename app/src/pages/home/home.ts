@@ -20,7 +20,7 @@ export class HomePage {
   euros = "1234";
   cents = "45";
 
-  user = 'malcolm';
+  user = 'rincewind';
   apiUrl = 'http://10.209.38.84:1200';
   balanceUrl = this.apiUrl + '/balance?user=';
 
