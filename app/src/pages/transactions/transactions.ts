@@ -11,15 +11,17 @@ export class Transactions {
 
   hideMenu = true;
 
-  static remaining_amount:Number = 0.00;
+  remaining_amount:Number;
   transactions = {
-    today : []
+    today: [Object],
+    yesterday: [Object],
+    before: [Object]
   };
   show_today = false;
   show_yesterday = false;
   show_before = false;
 
-  user = 'malcolm';
+  user = 'rincewind';
 
   constructor(public navCtrl: NavController, public http:HttpClient) {
     type Transaction = { id: String,
@@ -37,23 +39,23 @@ export class Transactions {
       yesterday?: [Transaction],
       before?: [Transaction]
     }
-      
+    var higher_this:any = this;
     var transactionsReady = this.getTransactions();
     transactionsReady.then(function(trans: TransactionsSummary) {
-
-    console.log(typeof trans.today[0].balance);
-    console.log(this.remaining_amount);
-    this.remaining_amount = 5 //trans.today[0].balance as Number;
-    this.transactions = trans as TransactionsSummary;
-    if(trans.today.length > 0)
-      this.show_today = true;
-    if(trans.yesterday.length > 0)
-      this.show_yesterday = true;
-    if(trans.before.length > 0){
-      this.show_before = true;
-    }
+      higher_this.remaining_amount = trans.today[0].balance as Number;
+      higher_this.transactions = trans as any;
+      if(trans.today.length > 0)
+        higher_this.show_today = true;
+      if(trans.yesterday.length > 0)
+        higher_this.show_yesterday = true;
+      if(trans.before.length > 0){
+        higher_this.show_before = true;
+      }
     })
-
+  }
+  
+  ngOnInit () {
+    
   }
 
 

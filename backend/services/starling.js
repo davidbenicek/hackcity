@@ -83,6 +83,9 @@ async function transactions(token){
         while(!transactions[i].created.indexOf(today) && i < transactions.length -1){
             console.log("YP",transactions[i].created, today);
             delete transactions[i]["_links"];
+            transactions[i].positive = (transactions[i].amount > 0);
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
             formatedTransactions.today.push(transactions[i]);
             i++;
         }
@@ -91,13 +94,19 @@ async function transactions(token){
         const yesterday  = string_date.split("T")[0];
         while(!transactions[i].created.indexOf(yesterday) && i < transactions.length -1 ){
             console.log("YP",transactions[i].created, yesterday);
+            transactions[i].positive = (transactions[i].amount > 0);
             delete transactions[i]["_links"];
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
             formatedTransactions.yesterday.push(transactions[i]);
             i++;
         }
         while(i < transactions.length -1 ){
-            formatedTransactions.before.push(transactions[i]);
+            transactions[i].positive = (transactions[i].amount > 0);
             delete transactions[i]["_links"];
+            let temp_date = new Date(transactions[i].created);
+            transactions[i].created = temp_date.getHours()+":"+temp_date.getMinutes()
+            formatedTransactions.before.push(transactions[i]);
             i++;
         }
         const fake = [{
@@ -105,7 +114,7 @@ async function transactions(token){
             "currency": "GBP",
             "amount": -23.45,
             "direction": "OUTBOUND",
-            "created": "2017-07-05T18:27:02.335Z",
+            "created": "18:27",
             "narrative": "Borough Barista",
             "source": "MASTER_CARD",
             "balance": 254.12
@@ -114,12 +123,12 @@ async function transactions(token){
             "currency": "GBP",
             "amount": +3.45,
             "direction": "OUTBOUND",
-            "created": "2017-07-05T18:27:02.335Z",
+            "created": "14:27",
             "narrative": "Borough Barista",
             "source": "MASTER_CARD",
             "balance": 4.12
           }]
-        // formatedTransactions.before = fake;
+        formatedTransactions.before = fake;
         console.log("Formated",formatedTransactions);
         console.log(formatedTransactions.today.length,",",formatedTransactions.yesterday.length,",",formatedTransactions.before.length)
         return formatedTransactions;

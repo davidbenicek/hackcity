@@ -5,6 +5,9 @@
     src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
   }
 
+.transaction_amount{
+    min-width: 6rem;
+}
 .positive_amount {
     color: #A0C13E;
 }
