@@ -7,13 +7,30 @@
 </ion-header>
 
 <ion-content padding>
-  <div id="balance">
-      <button id="balance_button" class="brown_round_button" ion-button round>
+  
+  <div id="menu_wrapper">
+      <div id="top_menu_buttons">
+              <button id="menu_receive_money" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+                  
+              </button>
+              <button id="menu_send_money" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+                  
+              </button>
+        </div>
+    <div id="balance">
+      <button id="balance_button" class="brown_round_button" (click)="toogleMenu()" ion-button round>
         <div id="button_content">
           <a id="small">Your Balance</a>
           <a id="balance_overview"><a id="small_top">$</a>{{euros}}<a id="small_top">.{{cents}}</a></a>
         </div>      
       </button>
+    </div>
+    <div id="bottom_menu_buttos">
+        <button id="menu_history" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+            
+        </button>
+        
+  </div>
   </div>
     
 

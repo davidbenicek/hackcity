@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class HomePage {
 
+  hideMenu = false;
+
   euros = 0;
   cents = 0;
 
@@ -19,11 +21,16 @@ export class HomePage {
   constructor(public navCtrl: NavController, public http:HttpClient) {
     var json = this.getBalance()
     json.then( x => {
-      console.log(x.amount);
-      var amount = (x.amount).toString();
-      this.euros = amount.split('.')[0]
-      this.cents = amount.split('.')[1]
+      //console.log(x.amount);
+      //var amount = (x.amount).toString();
+      //this.euros = amount.split('.')[0]
+      //this.cents = amount.split('.')[1]
     } ) 
+  }
+
+  toogleMenu() {
+    console.log("Toggle " + this.hideMenu);
+    this.hideMenu = !this.hideMenu;
   }
 
   getBalance() {
@@ -36,5 +43,7 @@ export class HomePage {
       });
     });
   }
+
+
 
 }
