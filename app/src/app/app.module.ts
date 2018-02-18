@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Transactions } from '../pages/transactions/transactions';
+import { Decision } from '../pages/decision/decision';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { QRCode } from '../pages/QRCode/qr';
@@ -16,7 +17,8 @@ import { QRCode } from '../pages/QRCode/qr';
     MyApp,
     HomePage,
     Transactions,
-    QRCode
+    QRCode,
+    Decision
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { QRCode } from '../pages/QRCode/qr';
     MyApp,
     HomePage,
     Transactions,
-    QRCode
+    QRCode,
+    Decision
   ],
   providers: [
     StatusBar,

@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Transactions } from '../transactions/transactions';
 import { QRCode } from '../QRCode/qr';
-
+import { Decision } from '../decision/decision';
 
 @Component({
   selector: 'page-home',
@@ -52,7 +52,10 @@ export class HomePage {
   }
 
   push() {
-    //pageNum++;
     this.navCtrl.push(QRCode);
+  }
+
+  loadDecision() {
+    this.navCtrl.push(Decision);
   }
 }
