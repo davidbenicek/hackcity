@@ -28,7 +28,6 @@ ion-title {
     margin-left: auto;
     width: 50vw;
     margin-right: auto;
-    margin-top: 50%;
     height: 50vw;
 }
 
@@ -53,3 +52,51 @@ ion-title {
 }
 
 
+.menu_button {
+    width: 20vw;
+    height: 20vw;
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+#top_menu_buttons {
+    height: 15vw;
+}
+
+#menu_wrapper {
+    margin-top: 20%;    
+}
+
+#menu_receive_money {
+    float:left;
+    background-image: url("../assets/imgs/dollar.svg");
+}
+
+#menu_send_money {
+    float:right;
+    background-image: url("../assets/imgs/transfer-money.svg");
+}
+
+#menu_history {
+    float: center;
+    background-image: url("../assets/imgs/history.svg");
+}
+
+#bottom_menu_buttos {
+    width: 20vw;
+    height: 20vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 16vw;
+}
+
+.fadeout {
+    opacity: 0;
+  }
+  
+  .fade {
+    transition: all linear 0.3s;
+  }
+  
