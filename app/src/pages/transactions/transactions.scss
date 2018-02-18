@@ -1,0 +1,30 @@
+/** Regular */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+
+.positive_amount {
+    color: #A0C13E;
+}
+
+.negative_amount {
+    color: #B57F50;
+}
+.remaining {
+    width: 100%;
+    text-align: center;
+}
+.remaining_amount {
+    font-size: 6.6rem;
+    margin-top: -0.8rem;
+}
+.remaining_text{
+    font-size: 1.3rem;
+}
+
+#menu_wrapper {
+    margin-top: 5%;
+    
+}

@@ -6,22 +6,27 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { Transactions } from '../pages/transactions/transactions';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Transactions
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Transactions
   ],
   providers: [
     StatusBar,

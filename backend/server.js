@@ -81,7 +81,7 @@ app.get('/transactions', async function (req, res) {
   const token = util.getUserToken(req.query.user);
   try {
     const transactions = await starling.transactions(token);
-    res.send(transactions["_embedded"].transactions);
+    res.send(transactions);
   }catch (err){
     console.log(err);
     res.send(500,err);

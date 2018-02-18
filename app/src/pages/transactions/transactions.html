@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+        Smooth
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <div id="menu_wrapper">
+    <div class="remaining">
+      <p class="remaining_text">Amount remaining:</p>
+      <h1 class="remaining_amount">£{{remaining_amount}}</h1>
+    </div>
+    <ion-list class="transactions_list">
+
+      <ion-list-header>Today</ion-list-header>
+  
+      <ion-item *ngFor="let item of transactions.today">
+        <h2 item-start class="negative_amount">
+          £{{item.amount}}
+        </h2>
+        <h2>{{item.narrative}}</h2>
+        <p>new balance £{{item.balance}}</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+
+  
+    </ion-list>
+  
+    <ion-list>
+  
+      <ion-list-header>Yesterday</ion-list-header>
+  
+      <ion-item>
+          <h2 item-start class="positive_amount">
+            +£5.32
+          </h2>
+          <h2>Witty Transaction name</h2>
+          <p>from John Doe, new balance £694.91</p>
+          <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+  
+    </ion-list>
+  
+    <ion-list *ngIf="show_before" >
+  
+      <ion-list-header>Last Week</ion-list-header>
+  
+      <ion-item>
+          <h2 item-start>
+            +£0.00
+          </h2>
+          <h2>Witty Transaction name</h2>
+          <p>from John Doe, new balance £694.91</p>
+          <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+
+  
+    </ion-list>
+    <!-- <div id="top_menu_buttons">
+              <button id="menu_receive_money" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+                  
+              </button>
+              <button id="menu_send_money" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+                  
+              </button>
+        </div>
+    <div id="balance">
+      <button id="balance_button" class="brown_round_button" (click)="toogleMenu()" ion-button round>
+        <div id="button_content">
+          <a id="small">Your Balance</a>
+          <a id="balance_overview"><a id="small_top">$</a>{{euros}}<a id="small_top">.{{cents}}</a></a>
+        </div>      
+      </button>
+    </div>
+    <div id="bottom_menu_buttos">
+        <button id="menu_history" class="brown_round_button fade menu_button" [class.fadeout]="hideMenu" ion-button round>
+            
+        </button>
+         -->
+  <!-- </div> -->
+  </div>
+    
+
+</ion-content>

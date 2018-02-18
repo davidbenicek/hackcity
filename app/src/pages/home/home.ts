@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { Transactions } from '../transactions/transactions';
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class HomePage {
 
-  hideMenu = false;
+  hideMenu = true;
 
   euros = 0;
   cents = 0;
@@ -44,6 +45,9 @@ export class HomePage {
     });
   }
 
+  loadTransaction() {
+    this.navCtrl.push(Transactions);
+  }
 
 
 }
