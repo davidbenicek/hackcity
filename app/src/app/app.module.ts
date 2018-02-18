@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { Transactions } from '../pages/transactions/transactions';
+import { Decision } from '../pages/decision/decision';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +15,8 @@ import { CommonModule } from '@angular/common';
   declarations: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    Decision
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { CommonModule } from '@angular/common';
   entryComponents: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    Decision
   ],
   providers: [
     StatusBar,
