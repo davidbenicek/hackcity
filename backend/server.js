@@ -44,7 +44,7 @@ app.get('/balance', async function (req, res) {
     res.send(balance);
   }catch (err){
     console.log(err);
-    res.send(500,err);
+    res.status(500).send(err);
   }
 })
 
@@ -55,7 +55,7 @@ app.get('/contacts', async function (req, res) {
     res.send(contacts["_embedded"].contacts);
   }catch (err){
     console.log(err);
-    res.send(500,err);
+    res.status(500).send(err);
   }
 })
 
@@ -66,11 +66,11 @@ app.post('/contacts', async function (req, res) {
   const contact = req.body;
 
   try {
-    const contact = await starling.addContact(contact,token);
-    res.send(contact);
+    const newContact = await starling.addContact(contact,token);
+    res.send(newContact);
   }catch (err){
     console.log(err);
-    res.send(500,err);
+    res.status(500).send(err);
   }
 })
 
@@ -81,7 +81,7 @@ app.get('/transactions', async function (req, res) {
     res.send(transactions["_embedded"].transactions);
   }catch (err){
     console.log(err);
-    res.send(500,err);
+    res.status(500).send(err);
   }
 })
 
@@ -89,11 +89,11 @@ app.post('/pay', async function (req, res) {
   const token = util.getUserToken(req.query.user);
   const transaction = req.body;
   try {
-    const history = await starling.pay(transaction,token);
-    // res.send(history);
+    const reciept = await starling.pay(transaction,token);
+    res.send(reciept);
   }catch (err){
     console.log(err);
-    res.send(500,err);
+    res.status(500).send(err);
   }
 })
 
