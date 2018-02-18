@@ -9,12 +9,14 @@ import { HomePage } from '../pages/home/home';
 import { Transactions } from '../pages/transactions/transactions';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { QRCode } from '../pages/QRCode/qr';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    QRCode
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { CommonModule } from '@angular/common';
   entryComponents: [
     MyApp,
     HomePage,
-    Transactions
+    Transactions,
+    QRCode
   ],
   providers: [
     StatusBar,
