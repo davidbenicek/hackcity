@@ -7,7 +7,10 @@ const config = require('./config.js');
 
 const starling = require('./services/starling.js');
 const util = require('./services/util.js');
+var cors = require('cors')
+ 
 const app = express();
+app.use(cors())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
