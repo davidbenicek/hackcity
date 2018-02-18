@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Transactions } from '../transactions/transactions';
+import { Photo } from '../photo/photo';
 
 @Component({
   selector: 'page-home',
@@ -47,6 +48,10 @@ export class HomePage {
 
   loadTransaction() {
     this.navCtrl.push(Transactions);
+  }
+
+  loadPhotoUpload() {
+    this.navCtrl.push(Photo);
   }
 
 

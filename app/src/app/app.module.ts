@@ -10,6 +10,10 @@ import { Transactions } from '../pages/transactions/transactions';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -31,7 +35,11 @@ import { CommonModule } from '@angular/common';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileTransfer,
+    FileTransferObject,
+    File,
+    Camera
   ]
 })
 export class AppModule {}
