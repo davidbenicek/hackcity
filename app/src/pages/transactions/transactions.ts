@@ -21,7 +21,7 @@ export class Transactions {
   show_yesterday = false;
   show_before = false;
 
-  user = 'rincewind';
+  user = 'malcolm';
 
   constructor(public navCtrl: NavController, public http:HttpClient) {
     type Transaction = { id: String,

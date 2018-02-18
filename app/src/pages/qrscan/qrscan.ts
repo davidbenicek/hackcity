@@ -78,7 +78,7 @@ export class QRScan {
     var header = { "headers": {"Content-Type": "application/json"} };
 
     return new Promise((resolve, reject) => {
-      this.http.post(this.payUrl + this.user, data)
+      this.http.post(this.payUrl + this.user, data, header)
       .toPromise()
       .then((response) =>
       {
